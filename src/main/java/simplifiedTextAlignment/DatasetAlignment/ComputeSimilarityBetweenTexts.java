@@ -24,10 +24,10 @@ public class ComputeSimilarityBetweenTexts {
 	public static void main(String args[]) throws IOException{
 		//BEGINNING OF CONFIG PARAMETERS
 		
-		String baseDir = "/path/to/your/dataset/parent/folder/";
-		String inFile = baseDir+"SimplifiedTextAlignment/WikiSimpleWiki/annotations.txt";
+		String baseDir = "C:\\Users\\DellUser\\Documents\\GitHub\\2021-thesis\\2_pipeline\\";
+		String inFile = baseDir + args[0];
 
-		int firstSentIndex = 1;
+		int firstSentIndex = 0;
 		int secondSentIndex = 2;
 		
 		String language = DefinedConstants.EnglishLanguage;
@@ -47,11 +47,11 @@ public class ComputeSimilarityBetweenTexts {
 		
 		String embeddingsFile = null;
 		if(language.equals(DefinedConstants.EnglishLanguage))
-			embeddingsFile = baseDir+"w2v_collections/Wikipedia/vectors/EN_Wikipedia_w2v_input_format.txtUTF8.vec";
+			embeddingsFile = "C:\\Users\\DellUser\\Documents\\GitHub\\2021-thesis\\1_code\\wiki.en.vec";
 		else if(language.equals(DefinedConstants.SpanishLanguage))
 			embeddingsFile = baseDir+"w2v_collections/SBW-vectors-300-min5.txt";
 		
-		if (args.length > 0) {
+		if (0==1) {
 			inFile = outFile = null;
 			nGramSize = 0;
 			firstSentIndex = 0;
@@ -112,6 +112,7 @@ public class ComputeSimilarityBetweenTexts {
 			if(i%1000==0)
 				System.out.println(i);
 			String ar[] = line.split("\t");
+			System.out.println(ar[2]);
 			List<Text2abstractRepresentation> cleanSubtexts1 = TextProcessingUtils.getCleanText(ar[firstSentIndex],alignmentLevel, similarityStrategy,model);
 			List<Text2abstractRepresentation> cleanSubtexts2 = TextProcessingUtils.getCleanText(ar[secondSentIndex],alignmentLevel, similarityStrategy,model);
 			List<TextAlignment> alignments = VectorUtils.alignUsingStrategy(cleanSubtexts1, cleanSubtexts2,similarityStrategy, alignmentStrategy, model);

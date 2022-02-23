@@ -4,6 +4,7 @@
 	<groupId>com.nlp.simplifiedTextAlignment</groupId>
 	<artifactId>simplifiedTextAlignment</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-io -->
 		<!-- https://mvnrepository.com/artifact/ant/ant -->
@@ -17,5 +18,14 @@
 			<artifactId>mtj</artifactId>
 			<version>1.0.4</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>3.8.1</version>
+		</dependency>
 	</dependencies>
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
 </project>
